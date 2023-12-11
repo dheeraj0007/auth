@@ -1,3 +1,6 @@
+"use client";
+import { signOut } from "next-auth/react";
+
 const UserInfo = () => {
   return (
     <div className="grid place-items-center h-screen ">
@@ -8,7 +11,10 @@ const UserInfo = () => {
         <div>
           Email : <span className="font-bold">john@gmail.com</span>
         </div>
-        <button className="bg-red-500 text-white font-bold px-6 py-2 mt-3">
+        <button
+          className="bg-red-500 text-white font-bold px-6 py-2 mt-3"
+          onClick={() => signOut()}
+        >
           Log Out
         </button>
       </div>
