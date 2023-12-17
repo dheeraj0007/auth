@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { connectMongoDB } from "../../../lib/mongodb";
+import db from "config/mongoose";
 import User from "../../../models/user";
 
 export async function POST(req) {
     try {
         console.log("Checking if user exists");
-        await connectMongoDB();
         const { email } = await req.json();
         const user = await User.findOne({ email }).select("_id");
         console.log("user : ", user);
